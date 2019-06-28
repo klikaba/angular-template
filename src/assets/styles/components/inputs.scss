@@ -1,0 +1,21 @@
+// Import theming functions
+@import '~@angular/material/theming';
+// Import your custom theme
+
+// Use mat-color to extract individual colors from a palette as necessary.
+// The hue can be one of the standard values (500, A400, etc.), one of the three preconfigured
+// hues (default, lighter, darker), or any of the aforementioned prefixed with "-contrast".
+// For example a hue of "darker-contrast" gives a light color to contrast with a "darker" hue.
+// Note that quotes are needed when using a numeric hue with the "-contrast" modifier.
+// Available color palettes: https://material.io/design/color/
+@mixin mat-input-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  // Use mat-color to extract individual colors from a palette as necessary.
+  .mat-form-field-wrapper .mat-form-field-label {
+    color: mat-color($primary);
+  }
+}

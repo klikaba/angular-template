@@ -1,0 +1,19 @@
+<div fxLayout="column">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form class="login-form" #userLogin="ngForm" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" [formControl]="password" required type="password">
+          <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="logIn()">LOGIN</button>
+        <p class="mat-body-1" fxFlexAlign="end">Don't have an account? <a [routerLink]="['/register']">Sign up</a></p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,37 @@
+@import 'components/components';
+
+.full-height {
+  height: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.container {
+  width: 920px;
+  margin: 0 auto;
+}
+
+.container-sm {
+  overflow: scroll;
+}
+
+.card {
+  &.white {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+  }
+}

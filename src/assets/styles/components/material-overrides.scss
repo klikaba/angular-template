@@ -1,0 +1,16 @@
+// .mat-tab-body-content {
+  // touch-action: none;
+  // user-select: none;
+  // -webkit-user-drag: none;
+  // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// }
+
+.mat-card {
+  margin-bottom: 1.2rem;
+}
+.mat-toolbar {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  min-height: 64px !important;
+}
