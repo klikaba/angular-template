@@ -12,7 +12,7 @@
             <input matInput placeholder="Password" [formControl]="password" required type="password">
             <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary" (click)="createUser()">LOGIN</button>
+          <button mat-raised-button color="primary" (click)="createUser()">REGISTER</button>
           <p class="mat-body-1" fxFlexAlign="end">Already have an account? <a [routerLink]="['/']">Log in</a></p>
         </form>
       </mat-card-content>

@@ -8,8 +8,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'login', component: HomePageComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
