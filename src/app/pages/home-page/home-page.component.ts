@@ -3,8 +3,8 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AuthService } from 'src/app/services/auth.service';
-import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { ApiService } from 'src/app/core/services/api.service';
 import { Router } from '@angular/router';
 
 
