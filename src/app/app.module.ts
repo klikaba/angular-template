@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { TimeAgoPipe } from './helpers/time-ago.pipe';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
@@ -25,7 +24,6 @@ import { CoreModule } from 'src/app/core/core.module';
     AppComponent,
     LoginComponent,
     HomePageComponent,
-    TimeAgoPipe,
     RegisterComponent,
     DashboardComponent
   ],
