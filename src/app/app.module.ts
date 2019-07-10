@@ -15,7 +15,6 @@ import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 
 import { TokenInterceptor } from './services/token.interceptor';
@@ -51,8 +50,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     ApiService,
