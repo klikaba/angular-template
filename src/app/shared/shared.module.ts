@@ -4,8 +4,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
+// Pipes
 import { TimeAgoPipe } from 'src/app/shared/pipes/time-ago.pipe';
 
+// Directives
+import { FormControlErrorsDirective } from './directives/form-control-error.directive';
+
+const directives = [
+    FormControlErrorsDirective
+];
+
+const pipes = [
+    TimeAgoPipe
+];
+  
 @NgModule({
     imports: [
         CommonModule,
@@ -19,9 +31,12 @@ import { TimeAgoPipe } from 'src/app/shared/pipes/time-ago.pipe';
         FlexLayoutModule,
         FormsModule,
         ReactiveFormsModule,
+        ...directives,
+        ...pipes
     ],
     declarations: [
-        TimeAgoPipe
+        ...directives,
+        ...pipes
     ],
     providers: [],
 })

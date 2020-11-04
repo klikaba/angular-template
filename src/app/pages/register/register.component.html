@@ -3,14 +3,16 @@
     <mat-card>
       <mat-card-title>Register</mat-card-title>
       <mat-card-content>
-        <form class="login-form" #userLogin="ngForm" fxLayout="column">
-          <mat-form-field>
-            <input matInput placeholder="Email" [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <form *ngIf="registerForm" class="login-form" fxLayout="column" name="registerForm" [formGroup]="registerForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error [formControlErrors]="registerForm.get('email').errors" control="email"></mat-error>
           </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Password" [formControl]="password" required type="password">
-            <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" required type="password">
+            <mat-error [formControlErrors]="registerForm.get('password').errors" control="password"></mat-error>
           </mat-form-field>
           <button mat-raised-button color="primary" (click)="createUser()">REGISTER</button>
           <p class="mat-body-1" fxFlexAlign="end">Already have an account? <a [routerLink]="['/']">Log in</a></p>

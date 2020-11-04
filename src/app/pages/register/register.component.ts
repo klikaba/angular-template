@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -12,28 +11,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  registerForm: FormGroup;
   constructor(
     private router: Router,
     private auth: AuthService,
-    private api: ApiService) { }
+    private api: ApiService,
+    private _formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.registerForm = this.createRegisterForm();
   }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
+  createRegisterForm(): FormGroup {
+    return this._formBuilder.group({
+      email   : ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
   }
 
   createUser() {
-    var email = this.email.value;
-    var password = this.password.value;
-    this.api.register({email: email, password: password})
+    this.api.register(this.registerForm.getRawValue())
       .subscribe(
         (response) => {
           this.auth.signInUser(response);

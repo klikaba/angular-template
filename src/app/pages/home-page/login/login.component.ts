@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,26 +7,25 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
   @Output() submitForm = new EventEmitter<any>();
 
   constructor(
+    private _formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
+    this.loginForm = this.createLoginForm();
   }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
+  createLoginForm(): FormGroup {
+    return this._formBuilder.group({
+      email   : ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
   }
 
   logIn() {
-    var email = this.email.value;
-    var password = this.password.value;
-    this.submitForm.emit({email: email, password: password});
+    this.submitForm.emit(this.loginForm.getRawValue());
   }
 }
